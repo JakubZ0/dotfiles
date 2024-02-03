@@ -1,0 +1,172 @@
+### Variables
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+set $menu wofi -c ~/.config/wofi/config -I 
+set $scriptdir ~/.config/sway/scripts/
+set $setbg ~/.config/sway/scripts/swww_randomize.sh ~/.config/sway/wallpapers/
+exec_always autotiling
+
+
+exec {
+dunst
+/usr/lib/polkit-kde-authentication-agent-1
+wl-paste -t text --watch clipman store --no-persist
+dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+swww init
+$setbg 
+}
+## Appearance
+blur enable
+blur_passes 3
+blur_radius 2
+gaps inner 10
+gaps outer 10
+default_dim_inactive 0.1
+smart_borders on
+shadow_blur_radius 20
+default_border none 
+corner_radius 12
+focus_follows_mouse yes
+smart_gaps false 
+shadows enable
+shadows_on_csd enable
+focus_on_window_activation smart
+
+# gsettings #
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Catppuccin-Mocha-Standard-Rosewater-Dark'
+    gsettings set $gnome-schema icon-theme 'Catppuccin-Mocha-RosewaterPapirus-Dark'
+    gsettings set $gnome-schema cursor-theme 'Catppuccin-Mocha-Dark-Cursors'
+    gsettings set $gnome-schema font-name 'Iosevka Nerd Font Regular 11'
+}
+
+# monitors #
+output {
+DP-1 mode 1920x1080@144Hz position 1920,0
+DP-1 adaptive_sync on
+HDMI-A-1 mode 1920x1080@75Hz position 0,0
+HDMI-A-1 adaptive_sync on
+}
+
+# input #
+input * {
+	xkb_layout "pl"
+}
+input "type:pointer" accel_profile flat
+   floating_modifier $mod normal
+#
+# daily
+#
+bindsym --to-code {
+    $mod+F5 reload
+    $mod+Return exec kitty 
+    $mod+q kill
+    $mod+a exec $menu
+    $mod+backspace exec wlogout
+    $mod+Shift+e exec   kitty ranger 
+    $mod+e exec         dolphin 
+    $mod+w exec         firefox
+    $mod+c exec         code 
+    $mod+shift+c exec   kitty nvim
+    F10 exec       $scriptdir/volumecontrol.sh -o m
+    F11 exec       $scriptdir/volumecontrol.sh -o d
+    F12 exec       $scriptdir/volumecontrol.sh -o i
+    Print exec     $scriptdir/swayshot.sh
+    $mod+p exec    $scriptdir/swayshot.sh region
+    $mod+Shift+minus move scratchpad
+    $mod+minus scratchpad show
+  }
+#
+# navigation
+#
+ bindsym --to-code {
+
+    $mod+$left focus left
+    $mod+$down focus down
+    $mod+$up focus up
+    $mod+$right focus right
+    $mod+Left focus left
+    $mod+Down focus down
+    $mod+Up focus up
+    $mod+Right focus right
+
+    $mod+Shift+$left move left
+    $mod+Shift+$down move down
+    $mod+Shift+$up move up
+    $mod+Shift+$right move right
+    $mod+Shift+Left move left
+    $mod+Shift+Down move down
+    $mod+Shift+Up move up
+    $mod+Shift+Right move right
+}
+#
+# Layout stuff:
+#
+bindsym { 
+    $mod+Shift+w exec $setbg 
+    $mod+f fullscreen
+}
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bar swaybar_command waybar
+
+set $rosewater #f5e0dc
+set $flamingo  #f2cdcd
+set $pink      #f5c2e7
+set $mauve     #cba6f7
+set $red       #f38ba8
+set $maroon    #eba0ac
+set $peach     #fab387
+set $green     #a6e3a1
+set $teal      #94e2d5
+set $sky       #89dceb
+set $sapphire  #74c7ec
+set $blue      #89b4fa
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b70
+set $surface1  #45475a
+set $surface0  #313244
+set $base      #1e1e2e
+set $mantle    #181825
+set $crust     #11111b
+
+# target                 title     bg    text   indicator  border
+client.focused           $pink     $base $text  $rosewater $pink
+client.focused_inactive  $mauve    $base $text  $rosewater $mauve
+client.unfocused         $mauve    $base $text  $rosewater $mauve
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+include { 
+catppuccin-mocha
+~/.config/sway/config.d/*.conf
+/etc/sway/config.d*
+}
