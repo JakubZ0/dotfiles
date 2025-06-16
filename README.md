@@ -1,10 +1,10 @@
 ## Catppuccin Mocha Hyprland rice
 
-Dotfiles for [https://github.com/JakubZ0](Jakub)
+Dotfiles for [Jakub](https://github.com/JakubZ0)
 
 Please feel free to copy any config file or a script!
 
-I use [https://yadm.io/] (YADM) for dotfiles managment.
+I use [YADM](https://yadm.io/) for dotfiles managment.
 
 
 ### Software
