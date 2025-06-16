@@ -1,15 +1,14 @@
-# Catppuccin Mocha Hyprland rice
+## Catppuccin Mocha Hyprland rice
 
 Dotfiles for [https://github.com/JakubZ0](Jakub)
+
 Please feel free to copy any config file or a script!
-I use [YADM](https://yadm.io/] for dotfiles managment.
+
+I use [https://yadm.io/] (YADM) for dotfiles managment.
 
 
-My apps are:
-
-
-## Software
-Category | Item
+### Software
+Category | App used
 :--- | :---
 bootloader | systemd-boot
 os | arch
@@ -24,3 +23,8 @@ editor | [neovim](https://github.com/JakubZ0/nvim)
 notification daemon | swaync
 browser | zen-browser
 theme | catppuccin mocha
+
+### Screenshots
+![](https://raw.githubusercontent.com/JakubZ0/dotfiles/refs/heads/master/Pictures/2025-06-16-233347_hyprshot.png)
+![](https://raw.githubusercontent.com/JakubZ0/dotfiles/refs/heads/master/Pictures/2025-06-16-233503_hyprshot.png)
+![](https://raw.githubusercontent.com/JakubZ0/dotfiles/refs/heads/master/Pictures/2025-06-16-233529_hyprshot.png)
