@@ -1,0 +1,14 @@
+@define-color bar-bg         rgba(30, 30, 46, 0);
+@define-color main-bg        rgba(30, 30, 46, 1);
+@define-color main-fg        #cdd6f4;
+
+@define-color wb-act-bg      rgba(203, 166, 247, 1);
+@define-color wb-act-fg      #1e1e2e;
+
+@define-color wb-hvr-bg      rgba(166, 173, 200, 1);  /* hover background */
+@define-color wb-hvr-fg      #1e1e2e;
+
+@define-color wb-color       #cdd6f4;
+@define-color wb-act-color   #1e1e2e;
+@define-color wb-hvr-color   #1e1e2e;
+

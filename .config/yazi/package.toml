@@ -1,0 +1,22 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "63f9650"
+hash = "d0ad0c1946b46a30c8489735fe8de41c"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "10b4627"
+hash = "3ec6a973d506665f1570a9fe08343fd8"
+
+[[plugin.deps]]
+use = "boydaihungst/restore"
+rev = "86dff43"
+hash = "f99f16081c0efc8ed49df9b788f92671"
+
+[[plugin.deps]]
+use = "TD-Sky/sudo"
+rev = "af70636"
+hash = "a94dcbe9266512806c677138e8591ddb"
+
+[flavor]
+deps = []
