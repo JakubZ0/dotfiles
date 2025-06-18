@@ -28,7 +28,7 @@ update_check = true
 ## how often to sync history. note that this is only triggered when a command
 ## is ran, so sync intervals may well be longer
 ## set it to 0 to sync after every command
-sync_frequency = "0"
+sync_frequency = "10m"
 
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy, skim
@@ -101,14 +101,4 @@ keymap_mode = "vim-insert"
 records = true
 
 [theme]
-name = "catppuccin-mocha-lavender"
-
-[colors]
-AlertInfo = "#a6e3a1"
-AlertWarn = "#fab387"
-AlertError = "#f38ba8"
-Annotation = "#b4befe"
-Base = "#cdd6f4"
-Guidance = "#9399b2"
-Important = "#f38ba8"
-Title = "#b4befe"
+name = "catppuccin-macchiato-lavender"
